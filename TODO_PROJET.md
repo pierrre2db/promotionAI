@@ -1,6 +1,6 @@
 # 📋 TO-DO LIST - Projet Formation IA Artemys Belgium
 
-## 📅 Date de dernière mise à jour : 3 novembre 2025 - 15h45
+## 📅 Date de dernière mise à jour : 3 novembre 2025 - 16h15
 
 ## 🎯 STRATÉGIE DE DÉPLOIEMENT
 
@@ -118,31 +118,41 @@
 
 ### ⚡ PHASE 1 - PRIORITÉ IMMÉDIATE : Test du formulaire HTML
 
-#### Étape 1 : Test en production (À FAIRE MAINTENANT)
-- [ ] **Aller sur le formulaire en ligne** : https://pierrre2db.github.io/promotionAI/inscription.html
-- [ ] **Remplir le formulaire avec des données réelles de test** :
-  - [ ] Prénom : [votre prénom test]
-  - [ ] Nom : [votre nom test]
-  - [ ] Email : [votre email test]
-  - [ ] Tous les autres champs requis
-- [ ] **Soumettre le formulaire**
-- [ ] **Vérifier le message de succès** s'affiche
+#### Étape 1 : Test en production ✅ VALIDÉ
+- [x] **Aller sur le formulaire en ligne** : https://pierrre2db.github.io/promotionAI/inscription.html
+- [x] **Remplir le formulaire avec des données réelles de test**
+- [x] **Soumettre le formulaire**
+- [x] **Message de succès s'affiche** ✅
 
-#### Étape 2 : Vérification Google Sheet
-- [ ] **Ouvrir le Google Sheet** : https://docs.google.com/spreadsheets/d/1a1pjMqzqpbaDyW7WGsnlBuiKO6eT6s4UJ1gLnkjpJ4k/
-- [ ] **Vérifier qu'une nouvelle ligne apparaît** avec :
-  - [ ] Horodateur correct
-  - [ ] Toutes les données saisies
-  - [ ] Format correct (Oui/Non pour newsletter)
+**BUG CORRIGÉ** : Fichier inscription.html était corrompu (balises HTML manquantes), restauré depuis commit 080ef5b.
 
-#### Étape 3 : Vérification emails
-- [ ] **Vérifier la boîte mail** `pierre2db@gmail.com`
-  - [ ] Email reçu avec toutes les infos
-  - [ ] Format lisible et complet
-  - [ ] Lien vers le Google Sheet fonctionne
+#### Étape 2 : Vérification Google Sheet ✅ VALIDÉ
+- [x] **Ouvrir le Google Sheet** : https://docs.google.com/spreadsheets/d/1a1pjMqzqpbaDyW7WGsnlBuiKO6eT6s4UJ1gLnkjpJ4k/
+- [x] **Nouvelle ligne apparaît** avec données correctes ✅
+- [x] Horodateur correct
+- [x] Toutes les données saisies
+- [x] Format correct
+
+**RÉSULTAT** : Le formulaire HTML → Google Sheet fonctionne parfaitement ✅
+
+#### Étape 3 : Vérification emails ❌ PROBLÈME DÉTECTÉ
+- [x] Test effectué
+- [x] **Vérifier la boîte mail** `pierre2db@gmail.com`
+  - [ ] ❌ **Email NON reçu**
 - [ ] **Demander à Thierry de vérifier** `Thierry.BODSON@artemys-belgium.be`
-  - [ ] Email bien reçu
-  - [ ] Même contenu que pierre2db
+  - [ ] ❌ **Email NON reçu** (probable)
+
+**PROBLÈME IDENTIFIÉ** :
+- Données arrivent dans Google Sheet ✅
+- Emails ne sont PAS envoyés ❌
+- **Cause probable** : Script Apps Script ne s'exécute pas ou erreur dans la fonction sendEmailNotification()
+
+**🔧 ACTIONS POUR RÉSOUDRE** :
+- [ ] Suivre le guide **DEBUG_EMAILS.md** étape par étape
+- [ ] Vérifier les logs du script Apps Script
+- [ ] Tester la fonction `testDoPost()` manuellement
+- [ ] Vérifier les permissions Gmail
+- [ ] Si nécessaire : redéployer le script avec le code complet fourni
 
 #### Étape 4 : Tests complémentaires
 - [ ] **Tester sur mobile** (smartphone)
@@ -354,15 +364,18 @@
 | **Site Artemys Belgium** | https://www.artemys-belgium.be/ |
 
 ### Documentation projet
-| Fichier | Description |
-|---------|-------------|
-| **TODO_PROJET.md** | Roadmap et to-do list complète (ce fichier) |
-| **GOOGLE_FORMS_SETUP.md** | Guide complet pour créer le Google Forms |
-| **GUIDE_COMPLET_GOOGLE_SHEET.md** | Guide pour configurer le Google Sheet et Apps Script |
-| **GOOGLE_SHEET_INTEGRATION.md** | Documentation intégration Google Sheet |
-| **README.md** | Documentation générale du projet |
-| **DEPLOY.md** | Guide de déploiement GitHub Pages |
-| **CHANGELOG.md** | Historique des versions |
+| Fichier | Description | Priorité |
+|---------|-------------|----------|
+| **TODO_PROJET.md** | Roadmap et to-do list complète (ce fichier) | ⭐⭐⭐ |
+| **DEBUG_EMAILS.md** | **Guide de débogage emails (À CONSULTER)** | 🔥 **URGENT** |
+| **APIS_ET_CLES.md** | **Référence complète APIs, URLs et clés** | ⭐⭐⭐ |
+| **GUIDE_TEST_FORMULAIRE.md** | Procédure de test du formulaire | ⭐⭐⭐ |
+| **GUIDE_COMPLET_GOOGLE_SHEET.md** | Configuration Google Sheet et Apps Script | ⭐⭐ |
+| **GOOGLE_FORMS_SETUP.md** | Guide Google Forms (Phase 2 - En pause) | ⭐ |
+| **GOOGLE_SHEET_INTEGRATION.md** | Documentation intégration Google Sheet | ⭐ |
+| **README.md** | Documentation générale du projet | ⭐ |
+| **DEPLOY.md** | Guide de déploiement GitHub Pages | ⭐ |
+| **CHANGELOG.md** | Historique des versions | ⭐ |
 
 ---
 
