@@ -1,6 +1,16 @@
 # 📋 TO-DO LIST - Projet Formation IA Artemys Belgium
 
-## 📅 Date de dernière mise à jour : 3 novembre 2025 - 15h30
+## 📅 Date de dernière mise à jour : 3 novembre 2025 - 15h45
+
+## 🎯 STRATÉGIE DE DÉPLOIEMENT
+
+**Phase 1 (EN COURS)** : Formulaire HTML + Google Sheet
+- Test et validation du système actuel
+- Mise en production du formulaire HTML
+
+**Phase 2 (PLANIFIÉE)** : Ajout Google Forms
+- Création du Google Forms en parallèle
+- Approche hybride pour maximum de flexibilité
 
 ---
 
@@ -106,35 +116,66 @@
 
 ## 🎯 CE QUI RESTE À FAIRE
 
-### Priorité 1 : Test et validation (URGENT)
-- [ ] **Tester le formulaire HTML en production** avec une vraie inscription
-  - [ ] Vérifier l'enregistrement dans Google Sheet
-  - [ ] Vérifier la réception des emails (2 destinataires)
-  - [ ] Vérifier le format des données
-  - [ ] Tester sur mobile/tablette
+### ⚡ PHASE 1 - PRIORITÉ IMMÉDIATE : Test du formulaire HTML
 
-### Priorité 1.5 : Mise en place Google Forms (EN COURS)
+#### Étape 1 : Test en production (À FAIRE MAINTENANT)
+- [ ] **Aller sur le formulaire en ligne** : https://pierrre2db.github.io/promotionAI/inscription.html
+- [ ] **Remplir le formulaire avec des données réelles de test** :
+  - [ ] Prénom : [votre prénom test]
+  - [ ] Nom : [votre nom test]
+  - [ ] Email : [votre email test]
+  - [ ] Tous les autres champs requis
+- [ ] **Soumettre le formulaire**
+- [ ] **Vérifier le message de succès** s'affiche
+
+#### Étape 2 : Vérification Google Sheet
+- [ ] **Ouvrir le Google Sheet** : https://docs.google.com/spreadsheets/d/1a1pjMqzqpbaDyW7WGsnlBuiKO6eT6s4UJ1gLnkjpJ4k/
+- [ ] **Vérifier qu'une nouvelle ligne apparaît** avec :
+  - [ ] Horodateur correct
+  - [ ] Toutes les données saisies
+  - [ ] Format correct (Oui/Non pour newsletter)
+
+#### Étape 3 : Vérification emails
+- [ ] **Vérifier la boîte mail** `pierre2db@gmail.com`
+  - [ ] Email reçu avec toutes les infos
+  - [ ] Format lisible et complet
+  - [ ] Lien vers le Google Sheet fonctionne
+- [ ] **Demander à Thierry de vérifier** `Thierry.BODSON@artemys-belgium.be`
+  - [ ] Email bien reçu
+  - [ ] Même contenu que pierre2db
+
+#### Étape 4 : Tests complémentaires
+- [ ] **Tester sur mobile** (smartphone)
+  - [ ] Affichage responsive correct
+  - [ ] Formulaire utilisable
+  - [ ] Soumission fonctionne
+- [ ] **Tester sur tablette** (si disponible)
+- [ ] **Tester avec différents navigateurs**
+  - [ ] Chrome
+  - [ ] Firefox
+  - [ ] Safari
+  - [ ] Edge
+
+#### Étape 5 : Validation finale
+- [ ] **Si tous les tests passent** → ✅ Système en production !
+- [ ] **Si problèmes détectés** → 🔧 Corriger et retester
+
+---
+
+### 📋 PHASE 2 - FUTUR : Google Forms (Documentation prête, mise en œuvre reportée)
+
+**Status** : ⏸️ En pause - À faire après validation Phase 1
+
 - [x] Documentation complète créée (GOOGLE_FORMS_SETUP.md)
 - [x] Template HTML créé (inscription-forms.html)
-- [ ] **Créer le Google Forms** selon le guide
+- [ ] **Création du Google Forms** (quand Phase 1 validée)
+  - [ ] Suivre le guide GOOGLE_FORMS_SETUP.md
   - [ ] Configurer les 11 questions
   - [ ] Personnaliser le design (couleurs Artemys)
-  - [ ] Ajouter le logo Artemys
-  - [ ] Configurer le message de confirmation
-- [ ] **Lier au Google Sheet**
-  - [ ] Créer un nouvel onglet "Réponses Google Forms" dans le Sheet existant
-  - [ ] Ou créer un nouveau Sheet dédié
-- [ ] **Configurer les notifications**
-  - [ ] Activer les notifications natives
-  - [ ] OU configurer le script Apps Script pour notifications multiples
-- [ ] **Intégrer au site**
-  - [ ] Récupérer l'URL du Google Forms
-  - [ ] Mettre à jour inscription-forms.html avec l'URL
-  - [ ] Ajouter un lien depuis index.html et inscription.html
-- [ ] **Tester le Google Forms**
-  - [ ] Soumettre une inscription test
-  - [ ] Vérifier les données dans le Sheet
-  - [ ] Vérifier les emails reçus
+  - [ ] Lier au Google Sheet
+  - [ ] Configurer les notifications
+  - [ ] Intégrer au site
+  - [ ] Tester
 
 ### Priorité 2 : Améliorations rapides
 - [ ] Ajouter un captcha anti-spam (Google reCAPTCHA v3)
