@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acculturation IA - 1/2 Journée - Artemys Belgium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        :root {
+            --artemys-blue: #0066CC;
+            --artemys-dark: #003D7A;
+            --artemys-light: #E8F0FF;
+            --accent-orange: #F39C12;
+            --light-gray: #F5F5F5;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--artemys-dark) 0%, var(--artemys-blue) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            max-height: 60px;
+            width: auto;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        header .tagline {
+            font-size: 1.2em;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Appétence */
+        .appetence {
+            background: var(--artemys-light);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .appetence h2 {
+            color: var(--artemys-dark);
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .appetence-text {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--artemys-blue);
+            color: white;
+            padding: 15px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s ease, transform 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            background: var(--artemys-dark);
+            transform: scale(1.05);
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* Section Modules */
+        .modules-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .modules-section h2 {
+            color: var(--artemys-dark);
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .module-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--artemys-blue);
+        }
+
+        .module-card h3 {
+            color: var(--artemys-dark);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .module-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        /* Section Infos Pratiques */
+        .infos {
+            background: var(--artemys-dark);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .infos h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--accent-orange);
+        }
+
+        .infos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 8px;
+            border: 2px solid var(--artemys-blue);
+            text-align: center;
+        }
+
+        .info-item h4 {
+            color: var(--accent-orange);
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .info-item p {
+            font-size: 1em;
+        }
+
+        .info-item a {
+            color: var(--accent-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .info-value {
+            font-size: 1.3em;
+            color: var(--accent-orange);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: var(--accent-orange);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .infos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="https://www.artemys-belgium.be/wp-content/uploads/2023/12/Artemys-Belgium_A_Transparent.png" alt="Logo Artemys Belgium">
+        </div>
+        <h1>🎓 Acculturation à l'Intelligence Artificielle</h1>
+        <p class="tagline">Une demi-journée pour maîtriser l'IA</p>
+        <p>Comprendre, explorer et intégrer l'IA dans vos pratiques professionnelles. Une formation conçue pour les professionnels pressés qui veulent des résultats concrets.</p>
+    </header>
+
+    <!-- Section Appétence -->
+    <section class="appetence">
+        <div class="container">
+            <h2>Pourquoi cette Formation ?</h2>
+            <div class="appetence-text">
+                <p>L'IA transforme les métiers à une vitesse exponentielle. Mais vous n'avez pas besoin d'être un expert en informatique pour en comprendre les enjeux et les opportunités.</p>
+                <p style="margin-top: 20px;"><strong>Cette formation intensive de 4 heures vous donne les clés pour :</strong></p>
+                <ul style="text-align: left; max-width: 600px; margin: 20px auto; list-style: none;">
+                    <li>✓ Démystifier l'IA et ses applications réelles</li>
+                    <li>✓ Découvrir comment l'utiliser en toute sécurité dans votre quotidien</li>
+                    <li>✓ Maîtriser les enjeux éthiques et légaux</li>
+                    <li>✓ Gagner en productivité immédiatement</li>
+                </ul>
+            </div>
+
+            <div class="cta-section">
+                <button class="cta-button">S'Inscrire Maintenant</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Modules -->
+    <section class="modules-section">
+        <div class="container">
+            <h2>Ce que vous allez apprendre</h2>
+
+            <div class="modules-grid">
+                <div class="module-card">
+                    <h3>🤖 Fondamentaux de l'IA</h3>
+                    <p>Qu'est-ce que l'IA vraiment ? Comment fonctionnent les LLM ? Pourquoi les IA "hallucinent" ? Les réponses simples et directes.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3>💼 IA dans le Monde Réel</h3>
+                    <p>Applications concrètes : commerce, santé, finance, marketing. Découvrez comment l'IA crée de la valeur dans votre secteur.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3>⚖️ Éthique & Conformité</h3>
+                    <p>RGPD, EU AI Act, biais algorithmiques. Comment utiliser l'IA de manière responsable et conforme à la loi.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3>🔐 Sécurité & Confidentialité</h3>
+                    <p>Protégez vos données. Solutions d'entreprise vs outils grand public. Bonnes pratiques essentielles.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3>💡 Prompt Engineering</h3>
+                    <p>L'art de formuler des demandes efficaces. Comment obtenir exactement ce que vous voulez des outils IA.</p>
+                </div>
+
+                <div class="module-card">
+                    <h3>🎯 Cas d'Usage Pratiques</h3>
+                    <p>Ateliers interactifs. Testez les outils en direct. Exemples concrets appliqués à votre métier.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Infos Pratiques -->
+    <section class="infos">
+        <div class="container">
+            <h2>Informations Pratiques</h2>
+
+            <div class="infos-grid">
+                <div class="info-item">
+                    <h4>⏱️ Durée</h4>
+                    <div class="info-value">1/2 Journée</div>
+                    <p>4 heures intensives<br>Formation sans chichis, directe au but</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>📍 Lieu</h4>
+                    <div class="info-value">Louvain-la-Neuve</div>
+                    <p>Boulevard Baudouin 1er, 25<br>B-1348 Louvain-la-Neuve</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>👥 Participants</h4>
+                    <div class="info-value">Max 16</div>
+                    <p>Petit groupe pour apprentissage optimal<br>et questions personnalisées</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>💻 Requis</h4>
+                    <div class="info-value">PC + Internet</div>
+                    <p>Aucun prérequis technique<br>Juste de la curiosité !</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>📞 Contact</h4>
+                    <p><a href="tel:+3223764331">+32 2 376 43 31</a><br><a href="mailto:ask@artemys-belgium.be">ask@artemys-belgium.be</a></p>
+                </div>
+
+                <div class="info-item">
+                    <h4>📋 Public</h4>
+                    <p>Tous professionnels<br>Débutants ou curieux de l'IA</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <p style="font-size: 1.15em; margin-bottom: 20px;">Prêt à maîtriser l'IA en une demi-journée ?</p>
+                <button class="cta-button">S'Inscrire Maintenant</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Acculturation à l'Intelligence Artificielle</strong></p>
+            <p>Formation proposée par <strong>Artemys Belgium</strong></p>
+            <p style="margin-top: 20px; font-size: 0.9em;">Pathé nous fait confiance</p>
+            <p style="margin-top: 15px;">
+                <a href="https://www.artemys-belgium.be/fr/" target="_blank" rel="noopener noreferrer">www.artemys-belgium.be</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.85em;">© 2025 Artemys Belgium | Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Merci de votre intérêt !\n\nPour vous inscrire, contactez Artemys Belgium :\n\n+32 2 376 43 31\nask@artemys-belgium.be');
+            });
+        });
+    </script>
+</body>
+</html>

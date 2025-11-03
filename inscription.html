@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'Inscrire - Formation Acculturation IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #E8F0FF 0%, #f5f5f5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        :root {
+            --artemys-blue: #0066CC;
+            --artemys-dark: #003D7A;
+            --accent-orange: #F39C12;
+            --success-green: #27AE60;
+            --error-red: #E74C3C;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--artemys-dark) 0%, var(--artemys-blue) 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 15px;
+        }
+
+        .logo-container img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        /* Formulaire */
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--artemys-dark);
+        }
+
+        .required {
+            color: var(--error-red);
+            margin-left: 3px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--artemys-blue);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Checkbox */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            margin: 0;
+            cursor: pointer;
+        }
+
+        /* Info box */
+        .info-box {
+            background: var(--artemys-light);
+            padding: 15px;
+            border-left: 4px solid var(--artemys-blue);
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .info-box strong {
+            color: var(--artemys-dark);
+        }
+
+        /* Boutons */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 14px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit {
+            background: var(--artemys-blue);
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background: var(--artemys-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+
+        .btn-reset {
+            background: #ddd;
+            color: #333;
+        }
+
+        .btn-reset:hover {
+            background: #ccc;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: var(--artemys-blue);
+            border: 2px solid var(--artemys-blue);
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-back:hover {
+            background: var(--artemys-blue);
+            color: white;
+        }
+
+        /* Navigation */
+        nav {
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: var(--artemys-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--accent-orange);
+            text-decoration: underline;
+        }
+
+        /* Messages */
+        .success-message {
+            background: var(--success-green);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message {
+            background: var(--error-red);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: var(--artemys-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">← Retour à la formation</a>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <img src="https://www.artemys-belgium.be/wp-content/uploads/2023/12/Artemys-Belgium_A_Transparent.png" alt="Logo Artemys Belgium">
+            </div>
+            <h1>📝 S'Inscrire</h1>
+            <p>Formation Acculturation à l'Intelligence Artificielle</p>
+        </header>
+
+        <!-- Formulaire -->
+        <div class="form-container">
+            <div class="info-box">
+                <strong>📅 À savoir :</strong> Cette formation dure <strong>1/2 journée (4 heures)</strong>. Maximum 16 participants pour un apprentissage optimal.
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✅ <strong>Inscription envoyée !</strong> Nous vous contactons dans les 24h pour confirmer votre place.
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                ❌ <strong>Erreur :</strong> Veuillez remplir tous les champs requis correctement.
+            </div>
+
+            <form id="inscriptionForm">
+                <!-- Identité -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prenom">Prénom <span class="required">*</span></label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Nom <span class="required">*</span></label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone">
+                    </div>
+                </div>
+
+                <!-- Entreprise -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="entreprise">Entreprise <span class="required">*</span></label>
+                        <input type="text" id="entreprise" name="entreprise" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fonction">Fonction <span class="required">*</span></label>
+                        <input type="text" id="fonction" name="fonction" required>
+                    </div>
+                </div>
+
+                <!-- Secteur -->
+                <div class="form-group">
+                    <label for="secteur">Secteur d'activité</label>
+                    <select id="secteur" name="secteur">
+                        <option value="">-- Sélectionnez --</option>
+                        <option value="tech">Technologie / IT</option>
+                        <option value="finance">Finance / Banque</option>
+                        <option value="retail">Commerce / Retail</option>
+                        <option value="sante">Santé</option>
+                        <option value="education">Éducation</option>
+                        <option value="marketing">Marketing / Communication</option>
+                        <option value="rh">Ressources Humaines</option>
+                        <option value="logistique">Logistique / Transport</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <!-- Attentes -->
+                <div class="form-group">
+                    <label for="attentes">Qu'espérez-vous apprendre ? <span class="required">*</span></label>
+                    <textarea id="attentes" name="attentes" placeholder="Décrivez brièvement vos attentes..." required></textarea>
+                </div>
+
+                <!-- Expérience IA -->
+                <div class="form-group">
+                    <label>Expérience avec l'IA <span class="required">*</span></label>
+                    <div class="checkbox-group" style="margin-bottom: 10px;">
+                        <input type="radio" id="exp-novice" name="experience" value="novice" required>
+                        <label for="exp-novice">Novice (jamais utilisé)</label>
+                    </div>
+                    <div class="checkbox-group" style="margin-bottom: 10px;">
+                        <input type="radio" id="exp-debutant" name="experience" value="debutant">
+                        <label for="exp-debutant">Débutant (quelques essais)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="radio" id="exp-intermediaire" name="experience" value="intermediaire">
+                        <label for="exp-intermediaire">Intermédiaire (utilise régulièrement)</label>
+                    </div>
+                </div>
+
+                <!-- Consentement -->
+                <div class="checkbox-group">
+                    <input type="checkbox" id="consentement" name="consentement" required>
+                    <label for="consentement">J'accepte d'être contacté par Artemys Belgium pour cette formation <span class="required">*</span></label>
+                </div>
+
+                <div class="checkbox-group" style="margin-top: 10px;">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Je souhaite recevoir des informations sur les formations futures</label>
+                </div>
+
+                <!-- Boutons -->
+                <div class="button-group">
+                    <button type="submit" class="btn-submit">✓ S'Inscrire</button>
+                    <button type="reset" class="btn-reset">Réinitialiser</button>
+                </div>
+            </form>
+
+            <!-- Info supplémentaire -->
+            <div class="info-box" style="margin-top: 30px;">
+                <strong>📞 Besoin d'aide ?</strong> Contactez directement Artemys Belgium :<br>
+                +32 2 376 43 31 | ask@artemys-belgium.be
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Artemys Belgium | Boulevard Baudouin 1er, 25 | B-1348 Louvain-la-Neuve</p>
+            <p><a href="https://www.artemys-belgium.be/fr/" target="_blank">www.artemys-belgium.be</a></p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('inscriptionForm');
+        const successMsg = document.getElementById('successMessage');
+        const errorMsg = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validation
+            const prenom = document.getElementById('prenom').value.trim();
+            const nom = document.getElementById('nom').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const entreprise = document.getElementById('entreprise').value.trim();
+            const fonction = document.getElementById('fonction').value.trim();
+            const attentes = document.getElementById('attentes').value.trim();
+            const consentement = document.getElementById('consentement').checked;
+
+            if (!prenom || !nom || !email || !entreprise || !fonction || !attentes || !consentement) {
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                return;
+            }
+
+            // Validation email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                return;
+            }
+
+            // Préparer les données
+            const formData = {
+                prenom,
+                nom,
+                email,
+                telephone: document.getElementById('telephone').value,
+                entreprise,
+                fonction,
+                secteur: document.getElementById('secteur').value,
+                attentes,
+                experience: document.querySelector('input[name="experience"]:checked').value,
+                newsletter: document.getElementById('newsletter').checked,
+                dateInscription: new Date().toLocaleString('fr-FR')
+            };
+
+            // Afficher le message de succès
+            successMsg.style.display = 'block';
+            errorMsg.style.display = 'none';
+
+            // Log des données (en production, ce serait envoyé à un serveur)
+            console.log('Inscription reçue :', formData);
+
+            // Réinitialiser le formulaire
+            form.reset();
+
+            // Scroll vers le message de succès
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // En production, vous enverriez ici les données à votre backend
+            // Exemple avec fetch :
+            /*
+            fetch('/api/inscriptions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                successMsg.style.display = 'block';
+                form.reset();
+            })
+            .catch(error => console.error('Erreur:', error));
+            */
+        });
+
+        // Masquer les messages d'erreur au clic dans un champ
+        document.querySelectorAll('input, textarea, select').forEach(field => {
+            field.addEventListener('focus', function() {
+                errorMsg.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
