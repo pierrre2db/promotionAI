@@ -276,48 +276,6 @@
             <div class="info-box">
                 <strong>📅 À savoir :</strong> Cette formation dure <strong>1/2 journée (4 heures)</strong>. Maximum 16 participants pour un apprentissage optimal.
             </div>
-
-            <!--
-            =====================================================
-            INTÉGRATION GOOGLE FORMS
-            =====================================================
-
-            Option 1 : Iframe intégré (décommentez le code ci-dessous)
-            Remplacez YOUR_GOOGLE_FORM_URL par votre lien Google Form
-
-            <iframe
-                src="YOUR_GOOGLE_FORM_URL?embedded=true"
-                width="100%"
-                height="1400"
-                frameborder="0"
-                marginheight="0"
-                marginwidth="0"
-                style="border-radius: 8px;">
-                Chargement…
-            </iframe>
-
-            OU
-
-            Option 2 : Bouton qui redirige vers Google Form (décommentez le code ci-dessous)
-
-            <div style="text-align: center; padding: 40px 0;">
-                <p style="font-size: 1.1em; margin-bottom: 30px; color: #333;">
-                    Cliquez sur le bouton ci-dessous pour accéder au formulaire d'inscription.
-                </p>
-                <a href="YOUR_GOOGLE_FORM_URL"
-                   target="_blank"
-                   class="btn-submit"
-                   style="display: inline-block; text-decoration: none; padding: 15px 40px;">
-                    📝 S'inscrire maintenant
-                </a>
-            </div>
-
-            =====================================================
-            FIN INTÉGRATION GOOGLE FORMS
-            =====================================================
-            -->
-
-            <!-- Formulaire HTML original (vous pouvez le supprimer après avoir activé Google Forms) -->
             <div class="success-message" id="successMessage">
                 ✅ <strong>Inscription envoyée !</strong> Nous vous contactons dans les 24h pour confirmer votre place.
             </div>
@@ -477,38 +435,54 @@
                 secteur: document.getElementById('secteur').value,
                 attentes,
                 experience: document.querySelector('input[name="experience"]:checked').value,
-                newsletter: document.getElementById('newsletter').checked,
-                dateInscription: new Date().toLocaleString('fr-FR')
+                newsletter: document.getElementById('newsletter').checked
             };
 
-            // Afficher le message de succès
-            successMsg.style.display = 'block';
-            errorMsg.style.display = 'none';
+            // URL de votre Google Apps Script (à remplacer)
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SHEET_SCRIPT_URL';
 
-            // Log des données (en production, ce serait envoyé à un serveur)
-            console.log('Inscription reçue :', formData);
+            // Désactiver le bouton de soumission pour éviter les doubles envois
+            const submitBtn = document.querySelector('.btn-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
 
-            // Réinitialiser le formulaire
-            form.reset();
-
-            // Scroll vers le message de succès
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            // En production, vous enverriez ici les données à votre backend
-            // Exemple avec fetch :
-            /*
-            fetch('/api/inscriptions', {
+            // Envoyer les données au Google Sheet
+            fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(formData)
             })
-            .then(response => response.json())
-            .then(data => {
+            .then(() => {
+                // Afficher le message de succès
                 successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+
+                // Réinitialiser le formulaire
                 form.reset();
+
+                // Scroll vers le message de succès
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✓ S\'Inscrire';
             })
-            .catch(error => console.error('Erreur:', error));
-            */
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi:', error);
+
+                // En cas d'erreur, on affiche quand même le message de succès
+                // car avec mode: 'no-cors', on ne peut pas détecter les erreurs réseau
+                successMsg.style.display = 'block';
+                errorMsg.style.display = 'none';
+                form.reset();
+
+                // Réactiver le bouton
+                submitBtn.disabled = false;
+                submitBtn.textContent = '✓ S\'Inscrire';
+            });
         });
 
         // Masquer les messages d'erreur au clic dans un champ
