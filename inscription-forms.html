@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription Google Forms - Formation IA Artemys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E8F0FF 0%, #f5f5f5 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        :root {
+            --artemys-blue: #0066CC;
+            --artemys-dark: #003D7A;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--artemys-dark) 0%, var(--artemys-blue) 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            margin-bottom: 15px;
+        }
+
+        .logo-container img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+
+        /* Navigation */
+        nav {
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: var(--artemys-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--artemys-dark);
+            text-decoration: underline;
+        }
+
+        /* Info box */
+        .info-box {
+            background: white;
+            padding: 20px;
+            border-left: 4px solid var(--artemys-blue);
+            margin-bottom: 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-box strong {
+            color: var(--artemys-dark);
+        }
+
+        /* Iframe container */
+        .form-iframe {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        iframe {
+            width: 100%;
+            min-height: 1500px;
+            border: none;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: var(--artemys-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Loading message */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            iframe {
+                min-height: 1800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">← Retour à la formation</a>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <img src="https://www.artemys-belgium.be/wp-content/uploads/2023/12/Artemys-Belgium_A_Transparent.png" alt="Logo Artemys Belgium">
+            </div>
+            <h1>📝 Inscription via Google Forms</h1>
+            <p>Formation Acculturation à l'Intelligence Artificielle</p>
+        </header>
+
+        <!-- Info -->
+        <div class="info-box">
+            <strong>📋 Formulaire Google Forms</strong><br>
+            Cette page utilise Google Forms pour collecter votre inscription. Vos données sont traitées de manière sécurisée et confidentielle.
+        </div>
+
+        <!-- Google Forms Iframe -->
+        <div class="form-iframe">
+            <div class="loading">
+                Chargement du formulaire...
+            </div>
+            <!--
+            INSTRUCTIONS :
+            1. Créez votre Google Forms selon le guide GOOGLE_FORMS_SETUP.md
+            2. Récupérez l'URL d'intégration (onglet "Envoyer" > icône < >)
+            3. Remplacez l'URL ci-dessous par votre URL Google Forms
+
+            Exemple d'URL :
+            https://docs.google.com/forms/d/e/1FAIpQLSxxxxxxxxxxxxxxxxxxxxxxx/viewform?embedded=true
+            -->
+            <iframe src="URL_GOOGLE_FORMS_EMBED_ICI"
+                    frameborder="0"
+                    marginheight="0"
+                    marginwidth="0">
+                Chargement…
+            </iframe>
+        </div>
+
+        <!-- Alternative -->
+        <div class="info-box">
+            <strong>💡 Alternative :</strong>
+            Vous préférez le formulaire intégré au site ?
+            <a href="inscription.html" style="color: var(--artemys-blue); text-decoration: underline;">
+                Utilisez notre formulaire HTML
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Artemys Belgium | Boulevard Baudouin 1er, 25 | B-1348 Louvain-la-Neuve</p>
+            <p><a href="https://www.artemys-belgium.be/fr/" target="_blank">www.artemys-belgium.be</a></p>
+        </footer>
+    </div>
+</body>
+</html>

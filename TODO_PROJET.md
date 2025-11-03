@@ -1,6 +1,6 @@
 # 📋 TO-DO LIST - Projet Formation IA Artemys Belgium
 
-## 📅 Date de dernière mise à jour : 3 novembre 2025
+## 📅 Date de dernière mise à jour : 3 novembre 2025 - 15h30
 
 ---
 
@@ -42,6 +42,15 @@
 - [x] DEPLOIEMENT_FINAL.md - Instructions de déploiement
 - [x] GOOGLE_SHEET_INTEGRATION.md - Guide d'intégration
 - [x] GUIDE_COMPLET_GOOGLE_SHEET.md - Guide complet pas à pas
+- [x] TODO_PROJET.md - To-do list et roadmap complète
+
+### 5. Google Forms (Nouveau)
+- [x] GOOGLE_FORMS_SETUP.md - Guide complet de configuration Google Forms
+- [x] inscription-forms.html - Template de page pour intégration Google Forms
+- [x] Documentation de l'approche hybride (HTML + Google Forms)
+- [ ] Création effective du Google Forms (à faire manuellement)
+- [ ] Configuration des notifications multiples
+- [ ] Test du Google Forms en production
 
 ---
 
@@ -97,12 +106,35 @@
 
 ## 🎯 CE QUI RESTE À FAIRE
 
-### Priorité 1 : Test et validation
-- [ ] **Tester le formulaire en production** avec une vraie inscription
+### Priorité 1 : Test et validation (URGENT)
+- [ ] **Tester le formulaire HTML en production** avec une vraie inscription
   - [ ] Vérifier l'enregistrement dans Google Sheet
   - [ ] Vérifier la réception des emails (2 destinataires)
   - [ ] Vérifier le format des données
   - [ ] Tester sur mobile/tablette
+
+### Priorité 1.5 : Mise en place Google Forms (EN COURS)
+- [x] Documentation complète créée (GOOGLE_FORMS_SETUP.md)
+- [x] Template HTML créé (inscription-forms.html)
+- [ ] **Créer le Google Forms** selon le guide
+  - [ ] Configurer les 11 questions
+  - [ ] Personnaliser le design (couleurs Artemys)
+  - [ ] Ajouter le logo Artemys
+  - [ ] Configurer le message de confirmation
+- [ ] **Lier au Google Sheet**
+  - [ ] Créer un nouvel onglet "Réponses Google Forms" dans le Sheet existant
+  - [ ] Ou créer un nouveau Sheet dédié
+- [ ] **Configurer les notifications**
+  - [ ] Activer les notifications natives
+  - [ ] OU configurer le script Apps Script pour notifications multiples
+- [ ] **Intégrer au site**
+  - [ ] Récupérer l'URL du Google Forms
+  - [ ] Mettre à jour inscription-forms.html avec l'URL
+  - [ ] Ajouter un lien depuis index.html et inscription.html
+- [ ] **Tester le Google Forms**
+  - [ ] Soumettre une inscription test
+  - [ ] Vérifier les données dans le Sheet
+  - [ ] Vérifier les emails reçus
 
 ### Priorité 2 : Améliorations rapides
 - [ ] Ajouter un captcha anti-spam (Google reCAPTCHA v3)
@@ -270,13 +302,26 @@
 
 ## 🔗 LIENS UTILES
 
+### Sites et services
 | Ressource | URL |
 |-----------|-----|
 | **Site en production** | https://pierrre2db.github.io/promotionAI/ |
-| **Page d'inscription** | https://pierrre2db.github.io/promotionAI/inscription.html |
+| **Page d'inscription HTML** | https://pierrre2db.github.io/promotionAI/inscription.html |
+| **Page d'inscription Google Forms** | https://pierrre2db.github.io/promotionAI/inscription-forms.html (à configurer) |
 | **Repository GitHub** | https://github.com/pierrre2db/promotionAI |
 | **Google Sheet** | https://docs.google.com/spreadsheets/d/1a1pjMqzqpbaDyW7WGsnlBuiKO6eT6s4UJ1gLnkjpJ4k/ |
 | **Site Artemys Belgium** | https://www.artemys-belgium.be/ |
+
+### Documentation projet
+| Fichier | Description |
+|---------|-------------|
+| **TODO_PROJET.md** | Roadmap et to-do list complète (ce fichier) |
+| **GOOGLE_FORMS_SETUP.md** | Guide complet pour créer le Google Forms |
+| **GUIDE_COMPLET_GOOGLE_SHEET.md** | Guide pour configurer le Google Sheet et Apps Script |
+| **GOOGLE_SHEET_INTEGRATION.md** | Documentation intégration Google Sheet |
+| **README.md** | Documentation générale du projet |
+| **DEPLOY.md** | Guide de déploiement GitHub Pages |
+| **CHANGELOG.md** | Historique des versions |
 
 ---
 
