@@ -1,0 +1,78 @@
+{
+  "company": {
+    "name": "Artemys Belgium",
+    "fullName": "Artemys Belgium SPRL",
+    "website": "https://www.artemys-belgium.be/",
+    "logo": "https://www.artemys-belgium.be/wp-content/uploads/2023/12/Artemys-Belgium_A_Transparent.png",
+    "description": "Expert en transformation digitale et intelligence artificielle"
+  },
+  "contact": {
+    "email": "ask@artemys-belgium.be",
+    "phone": "+32 2 376 43 31",
+    "address": {
+      "street": "Boulevard Baudouin 1er, 25",
+      "city": "Louvain-la-Neuve",
+      "postalCode": "B-1348",
+      "country": "Belgique"
+    }
+  },
+  "branding": {
+    "primaryColor": "#0066CC",
+    "secondaryColor": "#003D7A",
+    "accentColor": "#F39C12",
+    "successColor": "#27AE60",
+    "errorColor": "#E74C3C"
+  },
+  "form": {
+    "title": "Formation Intelligence Artificielle",
+    "subtitle": "Acculturation à l'Intelligence Artificielle pour Entreprises",
+    "description": "Une journée complète pour comprendre et maîtriser l'IA dans votre contexte professionnel",
+    "successMessage": "Inscription enregistrée avec succès ! Nous vous contactons dans les 24h.",
+    "consentText": "J'accepte d'être contacté(e) concernant cette formation *"
+  },
+  "notifications": {
+    "recipients": [
+      {
+        "name": "Pierre",
+        "email": "pierre2db@gmail.com",
+        "role": "Développeur / Contact technique"
+      },
+      {
+        "name": "Thierry Bodson",
+        "email": "Thierry.BODSON@artemys-belgium.be",
+        "role": "Responsable formation"
+      }
+    ],
+    "emailSubject": "Nouvelle inscription - Formation IA {{company.name}}",
+    "sendCopyToRegistrant": false,
+    "registrantEmailSubject": "Confirmation de votre inscription - Formation IA"
+  },
+  "googleSheet": {
+    "sheetId": "1a1pjMqzqpbaDyW7WGsnlBuiKO6eT6s4UJ1gLnkjpJ4k",
+    "scriptUrl": "https://script.google.com/macros/s/AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC/exec"
+  },
+  "features": {
+    "captcha": {
+      "enabled": false,
+      "siteKey": ""
+    },
+    "analytics": {
+      "enabled": false,
+      "gaTrackingId": ""
+    },
+    "calendarSync": {
+      "enabled": false,
+      "calendarId": "",
+      "note": "Future feature - Google Calendar synchronization"
+    }
+  },
+  "limits": {
+    "maxParticipants": 16,
+    "showRemainingPlaces": false
+  },
+  "metadata": {
+    "version": "1.3.0",
+    "lastUpdated": "2025-11-04",
+    "configFormat": "multi-company"
+  }
+}

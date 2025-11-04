@@ -1,8 +1,11 @@
 # 📋 TO-DO LIST - Projet Formation IA Artemys Belgium
 
-## 📅 Date de dernière mise à jour : 3 novembre 2025 - 17h00
+## 📅 Date de dernière mise à jour : 4 novembre 2025
 
-## 🎉 STATUT GLOBAL : ✅ SYSTÈME 100% OPÉRATIONNEL
+## 🎉 STATUT GLOBAL : 🚀 VERSION 1.3.0 EN DÉVELOPPEMENT
+
+**Version actuelle en production** : v1.2.0 ✅
+**Version en cours de développement** : v1.3.0 - Système multi-sociétés 🔧
 
 ## 🎯 STRATÉGIE DE DÉPLOIEMENT
 
@@ -34,6 +37,95 @@
 - `v1.0.0` - Initial release (site web de base)
 - `v1.1.0` - Intégration Google Sheet
 - `v1.2.0` - Système emails 100% opérationnel ✅
+- `v1.3.0` - **EN COURS** - Système multi-sociétés avec config.json 🔧
+
+---
+
+## 🚀 VERSION 1.3.0 - Système Multi-Sociétés (EN COURS)
+
+### 🎯 Objectifs v1.3.0
+
+**Problème résolu** : Réutiliser le système pour plusieurs sociétés/clients sans dupliquer le code.
+
+**Solution** : Configuration centralisée dans `config.json`
+
+### ✨ Nouvelles fonctionnalités
+
+1. **Configuration JSON externalisée**
+   - [x] Fichier `config.json` créé
+   - [x] Support de multiples sociétés
+   - [x] Changement de branding sans toucher au code
+
+2. **Destinataires emails configurables**
+   - [x] Support jusqu'à 4 destinataires
+   - [x] Configuration depuis `config.json`
+   - [x] Email avec sujet personnalisable
+
+3. **Personnalisation complète**
+   - [x] Logo dynamique
+   - [x] Couleurs CSS dynamiques (branding)
+   - [x] Titres et textes configurables
+   - [x] Messages personnalisables
+
+4. **Google Apps Script v1.3.0**
+   - [x] Code mis à jour pour lire destinataires depuis requête
+   - [x] Support sujet email dynamique
+   - [x] Compatibilité backward avec v1.2.0
+
+5. **Documentation complète**
+   - [x] CONFIG.md - Guide complet configuration
+   - [x] google-apps-script-v1.3.js - Code script mis à jour
+   - [x] Instructions de déploiement multi-sociétés
+
+### 📋 Checklist v1.3.0
+
+**Développement** :
+- [x] Créer branche feature/v1.3-multi-company-config
+- [x] Créer config.json avec toutes les sections
+- [x] Modifier inscription.html pour charger config.json
+- [x] Créer google-apps-script-v1.3.js
+- [x] Créer CONFIG.md avec documentation complète
+- [ ] Mettre à jour Google Apps Script dans Sheet (action manuelle)
+- [ ] Tester avec configuration Artemys Belgium
+- [ ] Tester avec configuration test différente
+- [ ] Créer Pull Request
+- [ ] Merger dans main
+- [ ] Créer tag v1.3.0
+- [ ] Mettre à jour GitHub Pages
+
+**Tests requis** :
+- [ ] Chargement config.json réussi
+- [ ] Logo s'affiche correctement
+- [ ] Couleurs appliquées dynamiquement
+- [ ] Titres et textes personnalisés affichés
+- [ ] Formulaire fonctionne
+- [ ] Données dans Google Sheet
+- [ ] Emails reçus par tous les destinataires configurés
+- [ ] Test avec 1, 2, 3 et 4 destinataires
+
+**Documentation** :
+- [x] CONFIG.md créé
+- [ ] APIS_ET_CLES.md mis à jour
+- [ ] README.md mis à jour
+- [ ] CHANGELOG.md mis à jour
+
+### 🔧 Fichiers modifiés v1.3.0
+
+| Fichier | Status | Description |
+|---------|--------|-------------|
+| **config.json** | ✅ Créé | Configuration centralisée |
+| **inscription.html** | ✅ Modifié | Chargement dynamique config |
+| **google-apps-script-v1.3.js** | ✅ Créé | Script avec destinataires dynamiques |
+| **CONFIG.md** | ✅ Créé | Documentation complète |
+| **TODO_PROJET.md** | ✅ Mis à jour | Ce fichier |
+| **APIS_ET_CLES.md** | ⏳ À mettre à jour | Référence APIs |
+| **README.md** | ⏳ À mettre à jour | Doc générale |
+| **CHANGELOG.md** | ⏳ À mettre à jour | Historique versions |
+
+### 🎯 Évolution future notée
+
+- **v1.4.0** : Synchronisation Google Calendar (calendrier des formations)
+- **v1.5.0** : Interface web de configuration (plus besoin d'éditer JSON manuellement)
 
 ---
 

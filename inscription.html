@@ -394,6 +394,103 @@
     </div>
 
     <script>
+        // Charger la configuration depuis config.json
+        let config = null;
+
+        // Fonction pour charger la configuration
+        async function loadConfig() {
+            try {
+                const response = await fetch('config.json');
+                config = await response.json();
+
+                // Appliquer la configuration au DOM
+                applyConfig(config);
+            } catch (error) {
+                console.error('Erreur lors du chargement de la configuration:', error);
+                // Utiliser une configuration par défaut si le chargement échoue
+                config = getDefaultConfig();
+                applyConfig(config);
+            }
+        }
+
+        // Fonction pour appliquer la configuration
+        function applyConfig(cfg) {
+            // Mettre à jour le logo
+            const logo = document.querySelector('.logo-container img');
+            if (logo && cfg.company.logo) {
+                logo.src = cfg.company.logo;
+                logo.alt = `Logo ${cfg.company.name}`;
+            }
+
+            // Mettre à jour le titre
+            const headerTitle = document.querySelector('header h1');
+            if (headerTitle && cfg.form.title) {
+                headerTitle.innerHTML = '📝 ' + cfg.form.title;
+            }
+
+            // Mettre à jour la description
+            const headerDesc = document.querySelector('header p');
+            if (headerDesc && cfg.form.subtitle) {
+                headerDesc.textContent = cfg.form.subtitle;
+            }
+
+            // Mettre à jour les couleurs CSS
+            if (cfg.branding) {
+                document.documentElement.style.setProperty('--artemys-blue', cfg.branding.primaryColor);
+                document.documentElement.style.setProperty('--artemys-dark', cfg.branding.secondaryColor);
+                document.documentElement.style.setProperty('--accent-orange', cfg.branding.accentColor);
+                document.documentElement.style.setProperty('--success-green', cfg.branding.successColor);
+                document.documentElement.style.setProperty('--error-red', cfg.branding.errorColor);
+            }
+
+            // Mettre à jour le message de succès
+            const successMsg = document.getElementById('successMessage');
+            if (successMsg && cfg.form.successMessage) {
+                successMsg.innerHTML = '✅ <strong>' + cfg.form.successMessage + '</strong>';
+            }
+
+            // Mettre à jour le texte du consentement
+            const consentLabel = document.querySelector('label[for="consentement"]');
+            if (consentLabel && cfg.form.consentText) {
+                consentLabel.innerHTML = cfg.form.consentText;
+            }
+        }
+
+        // Configuration par défaut (fallback)
+        function getDefaultConfig() {
+            return {
+                company: {
+                    name: "Artemys Belgium",
+                    logo: "https://www.artemys-belgium.be/wp-content/uploads/2023/12/Artemys-Belgium_A_Transparent.png"
+                },
+                form: {
+                    title: "Formation Intelligence Artificielle",
+                    subtitle: "Acculturation à l'Intelligence Artificielle pour Entreprises",
+                    successMessage: "Inscription enregistrée avec succès ! Nous vous contactons dans les 24h.",
+                    consentText: "J'accepte d'être contacté(e) concernant cette formation *"
+                },
+                branding: {
+                    primaryColor: "#0066CC",
+                    secondaryColor: "#003D7A",
+                    accentColor: "#F39C12",
+                    successColor: "#27AE60",
+                    errorColor: "#E74C3C"
+                },
+                googleSheet: {
+                    scriptUrl: "https://script.google.com/macros/s/AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC/exec"
+                },
+                notifications: {
+                    recipients: [
+                        { email: "pierre2db@gmail.com" },
+                        { email: "Thierry.BODSON@artemys-belgium.be" }
+                    ]
+                }
+            };
+        }
+
+        // Charger la configuration au chargement de la page
+        loadConfig();
+
         const form = document.getElementById('inscriptionForm');
         const successMsg = document.getElementById('successMessage');
         const errorMsg = document.getElementById('errorMessage');
@@ -435,11 +532,15 @@
                 secteur: document.getElementById('secteur').value,
                 attentes,
                 experience: document.querySelector('input[name="experience"]:checked').value,
-                newsletter: document.getElementById('newsletter').checked
+                newsletter: document.getElementById('newsletter').checked,
+                // Ajouter les informations de configuration pour le backend
+                companyName: config.company.name,
+                recipients: config.notifications.recipients.map(r => r.email).join(','),
+                emailSubject: config.notifications.emailSubject.replace('{{company.name}}', config.company.name)
             };
 
-            // URL de votre Google Apps Script (mise à jour avec permissions Gmail)
-            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC/exec';
+            // URL du Google Apps Script depuis la configuration
+            const GOOGLE_SCRIPT_URL = config.googleSheet.scriptUrl;
 
             // Désactiver le bouton de soumission pour éviter les doubles envois
             const submitBtn = document.querySelector('.btn-submit');
