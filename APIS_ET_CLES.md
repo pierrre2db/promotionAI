@@ -79,13 +79,15 @@ Ce document centralise toutes les informations sur les APIs, clés, URLs et iden
 ### URL de déploiement (Webhook)
 
 ```
-https://script.google.com/macros/s/AKfycbxgyHeVvJk-GN7NfY0hakibz_yiM8cpEuNXeqnP2KEHk0jLOlBM3aFxCCtR1gqbi4fW/exec
+https://script.google.com/macros/s/AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC/exec
 ```
 
 | Composant | Détail |
 |-----------|--------|
-| **URL complète** | https://script.google.com/macros/s/AKfycbxgyHeVvJk-GN7NfY0hakibz_yiM8cpEuNXeqnP2KEHk0jLOlBM3aFxCCtR1gqbi4fW/exec |
-| **ID du script** | `AKfycbxgyHeVvJk-GN7NfY0hakibz_yiM8cpEuNXeqnP2KEHk0jLOlBM3aFxCCtR1gqbi4fW` |
+| **URL complète** | https://script.google.com/macros/s/AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC/exec |
+| **ID du script** | `AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC` |
+| **Version** | v2 (avec permissions Gmail) |
+| **Date de déploiement** | 3 novembre 2025 - 17h00 |
 | **Type de déploiement** | Application Web |
 | **Exécuter en tant que** | Propriétaire (pierre2db@gmail.com) |
 | **Qui peut accéder** | Tout le monde (public) |
@@ -289,7 +291,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 ### Dans inscription.html (ligne 442)
 
 ```javascript
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxgyHeVvJk-GN7NfY0hakibz_yiM8cpEuNXeqnP2KEHk0jLOlBM3aFxCCtR1gqbi4fW/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyPsRE4NMzqz_oYvq2WFpRMrp4tIRSMm7KcbBLiN3w2UijYmAFw0IYNURO4SnPF9sC/exec';
 ```
 
 ### Dans Google Apps Script (lignes 4-5)
@@ -331,36 +333,40 @@ Si vous devez redéployer le script Apps Script :
 
 ---
 
-## 📊 ÉTAT DES SERVICES (3 novembre 2025 - 16h15)
+## 📊 ÉTAT DES SERVICES (3 novembre 2025 - 17h00)
 
 | Service | Status | Dernière vérification | Notes |
 |---------|--------|-----------------------|-------|
-| **Site web GitHub Pages** | ✅ Opérationnel | 16h00 | - |
-| **Formulaire HTML** | ✅ Opérationnel | 16h00 | Bug corrompu résolu |
-| **Google Sheet** | ✅ Opérationnel | 16h00 | Données reçues correctement |
-| **Apps Script Webhook** | ⚠️ Partiel | 16h00 | Webhook appelé, Sheet updaté |
-| **Envoi d'emails** | ❌ Non fonctionnel | 16h00 | **PROBLÈME À RÉSOUDRE** |
+| **Site web GitHub Pages** | ✅ Opérationnel | 17h00 | - |
+| **Formulaire HTML** | ✅ Opérationnel | 17h00 | URL webhook mise à jour |
+| **Google Sheet** | ✅ Opérationnel | 17h00 | Données reçues correctement |
+| **Apps Script Webhook** | ✅ Opérationnel | 17h00 | Nouveau déploiement v2 |
+| **Envoi d'emails** | ✅ Opérationnel | 17h00 | **RÉSOLU - Permissions Gmail accordées** ✅ |
 
 ---
 
-## 🆘 PROBLÈME ACTUEL : Emails non envoyés
+## ✅ PROBLÈME RÉSOLU : Emails maintenant opérationnels
 
-### Symptômes
-- ✅ Formulaire fonctionne
-- ✅ Données arrivent dans Google Sheet
+### Symptômes initiaux
+- ✅ Formulaire fonctionnait
+- ✅ Données arrivaient dans Google Sheet
 - ❌ Aucun email envoyé aux destinataires
 
-### Causes possibles
-1. Fonction `sendEmailNotification()` non appelée
-2. Erreur dans la fonction d'envoi
-3. Permissions Gmail insuffisantes
-4. Emails bloqués par Google (spam/sécurité)
+### Causes identifiées
+1. ✅ Script incomplet (fonction `sendEmailNotification()` manquante)
+2. ✅ Permissions Gmail non accordées lors du déploiement
 
-### Actions à faire
-1. Vérifier les logs du script Apps Script
-2. Tester la fonction `testDoPost()` manuellement
-3. Vérifier les permissions Gmail dans Apps Script
-4. Consulter le guide GUIDE_COMPLET_GOOGLE_SHEET.md section dépannage
+### Solution appliquée (3 novembre 2025 - 17h00)
+1. ✅ Code complet ajouté avec les 3 fonctions :
+   - `doPost()` - Réception et enregistrement
+   - `sendEmailNotification()` - Envoi d'emails
+   - `testDoPost()` - Tests manuels
+2. ✅ Nouveau déploiement avec autorisation Gmail explicite
+3. ✅ Permissions accordées : `https://www.googleapis.com/auth/script.send_mail`
+4. ✅ Tests réussis : emails reçus sur les 2 adresses
+
+### État final
+✅ **Système 100% opérationnel** : Formulaire → Google Sheet → Emails automatiques
 
 ---
 
@@ -386,6 +392,6 @@ Si vous devez redéployer le script Apps Script :
 
 ---
 
-**Dernière modification** : 3 novembre 2025 - 16h15
-**Version** : 1.0
-**Prochaine mise à jour** : Après résolution du problème d'emails
+**Dernière modification** : 3 novembre 2025 - 17h00
+**Version** : 2.0
+**Statut** : ✅ Système complet et opérationnel
