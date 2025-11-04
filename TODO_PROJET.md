@@ -18,6 +18,25 @@
 
 ---
 
+## 📌 WORKFLOW GIT
+
+**⚠️ Important** : À partir de maintenant, suivre le workflow Git professionnel :
+- ✅ Créer une branche pour chaque feature/fix
+- ✅ Faire une Pull Request
+- ✅ Merger après validation
+- ✅ Tagger les releases
+
+**Documentation** :
+- **GIT_WORKFLOW.md** - Guide complet du workflow
+- **CONTRIBUTING.md** - Guide de contribution
+
+**Tags de release** :
+- `v1.0.0` - Initial release (site web de base)
+- `v1.1.0` - Intégration Google Sheet
+- `v1.2.0` - Système emails 100% opérationnel ✅
+
+---
+
 ## ✅ CE QUI A ÉTÉ FAIT
 
 ### 1. Infrastructure du site web
@@ -371,9 +390,12 @@
 | Fichier | Description | Priorité |
 |---------|-------------|----------|
 | **TODO_PROJET.md** | Roadmap et to-do list complète (ce fichier) | ⭐⭐⭐ |
-| **DEBUG_EMAILS.md** | **Guide de débogage emails (À CONSULTER)** | 🔥 **URGENT** |
 | **APIS_ET_CLES.md** | **Référence complète APIs, URLs et clés** | ⭐⭐⭐ |
-| **GUIDE_TEST_FORMULAIRE.md** | Procédure de test du formulaire | ⭐⭐⭐ |
+| **GIT_WORKFLOW.md** | **Workflow Git professionnel (NOUVEAU)** | ⭐⭐⭐ |
+| **CONTRIBUTING.md** | **Guide de contribution (NOUVEAU)** | ⭐⭐⭐ |
+| **SOLUTION_EMAILS.md** | Résolution complète du problème d'emails | ⭐⭐⭐ |
+| **GUIDE_TEST_FORMULAIRE.md** | Procédure de test du formulaire | ⭐⭐ |
+| **DEBUG_EMAILS.md** | Guide de débogage emails | ⭐⭐ |
 | **GUIDE_COMPLET_GOOGLE_SHEET.md** | Configuration Google Sheet et Apps Script | ⭐⭐ |
 | **GOOGLE_FORMS_SETUP.md** | Guide Google Forms (Phase 2 - En pause) | ⭐ |
 | **GOOGLE_SHEET_INTEGRATION.md** | Documentation intégration Google Sheet | ⭐ |
